@@ -1,4 +1,3 @@
-from PIL import Image, ImageDraw
 import cv2
 import threading
 
@@ -21,6 +20,37 @@ from image_tools import model_detection, logger
 
 """
 
+"""
+Developers are tasked with adding the feature for overlaying accessories on the cats when they are detected.  Below is an example implementation of this feature.
+"""
+
+def overlay_accessory_with_detection(image_path):
+    # Detect cat
+    image = cv2.imread('/dev/image_test.jpg')
+    if image is None:
+        raise ValueError("Image not found or unable to open")
+
+    # Image processing for model
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    edges = cv2.Canny(gray, 100, 200)
+    feature_sum = edges.sum()
+    average_intensity = 0.5
+    ... 
+
+    detected_object = model_detection(image, feature_sum, average_intensity)
+
+    # Add Accessory
+    x,y,w,h = detected_object.coords
+
+    accessory_height = h // 2
+    accessory_width = w
+
+    draw.rectangle([x, y - accessory_height, x + accessory_width, y], image="black_top_hat.jpg")
+
+    # Save the modified image
+    img.save("output_with_accessory.jpg")
+    print("Accessory overlaid and image saved as output_with_accessory.jpg")
+
 def process_frame(image_path):
     time.sleep(0.1)
     logger.info("Image processing complete.")
@@ -42,6 +72,9 @@ def main():
 
             # Process and Display
             processed_frame = process_frame(frame)
+
+            # Overlay accessories
+            overlay_accessory_with_detection("cat_image.jpg")
 
             # Collect metrics and upload data
             collect_metrics(processed_frame)
