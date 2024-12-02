@@ -15,9 +15,11 @@ from image_tools import model_detection, logger
 
     General Architecture Questions:
 
-    1. What are the key components and services that you would include in this system? Consider aspects such as data collection, processing, storage, as well as user interaction and alerts.
+    1. What are the key components and services that you would include in this system? 
+    Consider aspects such as data collection, processing, storage, as well as user interaction and alerts.
 
-    2. Consider the trade-offs between processing data on the devices versus in the cloud. How would you decide which types of tasks to perform locally and which to handle on the device?
+    2. Consider the trade-offs between processing data on the devices versus in the cloud. 
+    How would you decide which types of tasks to perform locally and which to handle on the device?
 
 """
 
