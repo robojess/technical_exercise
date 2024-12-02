@@ -45,10 +45,10 @@ def overlay_accessory_with_detection(image_path):
     accessory_height = h // 2
     accessory_width = w
 
-    draw.rectangle([x, y - accessory_height, x + accessory_width, y], image="black_top_hat.jpg")
+    image.rectangle([x, y - accessory_height, x + accessory_width, y], image="black_top_hat.jpg")
 
     # Save the modified image
-    img.save("output_with_accessory.jpg")
+    image.save("output_with_accessory.jpg")
     print("Accessory overlaid and image saved as output_with_accessory.jpg")
 
 def process_frame(image_path):
